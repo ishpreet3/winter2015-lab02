@@ -1,30 +1,31 @@
 <?php
+
 if (!defined('APPPATH'))
     exit('No direct script access allowed');
+
 /**
  * helpers/common_helper.php
  *
  * Some sample helper functions
  */
+
 /**
  * Extract cells from an array into corresponding properties in an object
  * @param <type> $source An associative array state representation of an object
  * @param <type> $target The corresponding object
  * @param <type> $fields The names of the object properties
  */
-
-$autoload['helper'] = array('common', 'url');
-
 function fieldExtract($source, $target, $fields)
 {
     foreach ($fields as $prop)
     {
-	if (isset($source[$prop]))
-	{
-	    $target->$prop = html_entity_decode($source[$prop]);
-	}
+    if (isset($source[$prop]))
+    {
+        $target->$prop = html_entity_decode($source[$prop]);
+    }
     }
 }
+
 /**
  * Inject cells into an array from corresponding properties in an object
  * @param <type> $source The original object
@@ -35,15 +36,15 @@ function fieldInject($source, $target, $fields)
 {
     foreach ($fields as $prop)
     {
-	if (isset($source->$prop))
-	{
-	    $target[$prop] = $source->html_entity_decode($prop);
-	}
+    if (isset($source->$prop))
+    {
+        $target[$prop] = $source->html_entity_decode($prop);
+    }
     }
 }
 /**
  * Does a string end with a specific substring
- * 
+ *
  * @param (string) $string  The target of our search
  * @param (string) $ending  The ending substring we are looking for
  * @return (boolean) True if the first string ends with the second
@@ -55,6 +56,7 @@ function endsWith($string, $ending)
     $ourEnd = substr($string, strlen($string) - $piece);
     return $ourEnd == $ending;
 }
+
 /**
  * Build an unordered list of linked items, such as used for a menu bar.
  * Assumption: that the URL helper has been loaded.
@@ -64,9 +66,12 @@ function build_menu_bar($choices)
 {
     $result = '<ul>';
     foreach ($choices as $name => $link)
-	$result .= '<li>' . anchor($link, $name) . '</ul>';
+    $result .= '<li>' . anchor($link, $name) . '</li>';
     $result .= '</ul>';
     return $result;
 }
+
 /* End of file common_helper.php */
 /* Location: application/helpers/common_helper.php */
+
+?>

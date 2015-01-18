@@ -7,7 +7,7 @@
 class Application extends CI_Controller {
     protected $data = array();      // parameters for view components
     protected $id;		  // identifier for our content
-    protected $choice = array('Home' => '/', 'Gallery' =>'gallery', 'About' => 'about');
+    protected $choice = array('Home' => '/', 'Gallery' =>'/gallery', 'About' => '/about');
     /**
      * Constructor.
      * Establish view parameters & load common helpers
@@ -16,7 +16,6 @@ class Application extends CI_Controller {
     {
 	parent::__construct();
 	$this->data = array();
-	$this->data['pagetitle'] = 'Sample Image Gallery';
     }
     /**
      * Render this page
@@ -30,3 +29,4 @@ class Application extends CI_Controller {
     }
 }
 /* End of file MY_Controller.php */
+?>
